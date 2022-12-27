@@ -1,0 +1,6 @@
+\env
+\.vscode
+\chmury\chmury\__pycache__
+\chmury\catalog\__pycache__
+__pycache__/
+*.py[cod]

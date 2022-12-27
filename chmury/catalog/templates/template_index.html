@@ -1,0 +1,96 @@
+<head>
+	{% load static %}
+	  <link rel="stylesheet"  type="text/css" href="{%static 'chrobry/styles.css'%}">
+</head>
+
+
+<div class="head">
+
+	<img src="{%static 'chrobry/logo.png'%}">
+</div>
+
+<body>
+	<h1>Witamy w projekcie!</h1>
+	<h2>Wybierz interesujące cię dane:</h2>
+<div class="data">
+		<h3> Filmy:</h3>
+		<form id="films" action="{% url 'catalog:data_view'%}">
+		<input  list="films_datalist" name="films_choosment">
+			<datalist id="films_datalist">
+				{%for films in films_list%}
+				<option value="{{films.title}}"></option>
+				{%endfor%}
+			</datalist>
+		<input type="submit" value="Wybierz">
+		</form>
+
+		<h3> Aktorzy:</h3>
+		<form id="actors" action="{% url 'catalog:data_view'%}">
+		<input  list="actor_datalist" name="actors_choosment">
+			<datalist id="actor_datalist">
+				{%for actor in actors_list%}
+				<option value="{{actor.name}} {{actor.last_name}}"></option>
+				{%endfor%}
+			</datalist>
+		<input type="submit" value="Wybierz">
+		</form>
+		
+		<h3> Reżyserzy:</h3>
+		<form id="directors" action="{% url 'catalog:data_view'%}">
+		<input  list="director_datalist" name="directors_choosment" >
+			<datalist id="director_datalist">
+				{%for director in directors_list%}
+				<option value="{{director.name}} {{director.last_name}}"></option>
+				{%endfor%}
+			</datalist>
+		<input type="submit" value="Wybierz"></form>
+
+		
+		<form  id="new_films" action="{% url 'catalog:data_add'%}">
+			{% csrf_token %}
+			<label for="film_title">Dodaj nowy film!</label>
+			<section class="form_inputs">
+			<input type="text" id="film_title" name="film_title" placeholder="Tytuł nowego filmu" >
+			</section>
+
+			<section class="form_inputs">
+			<input  list="director_datalist"  name="film_director" placeholder="Reżyser">	
+			<datalist id="director_datalist">
+				{%for director in director_list%}
+				<option value="{{director.name}}"></option>
+				{%endfor%}
+			</datalist>
+			</section>
+
+			<section class="form_inputs">
+			<input  list="actor_datalist"  name="film_actor" placeholder="Aktor">
+			<datalist id="actor_datalist">
+				{%for actor in actors_list%}
+				<option value="{{actor.name}}"></option>
+				{%endfor%}
+			</datalist>
+			</section> 
+		<input type="submit" value="Stwórz"> 
+		{% comment %} <form  id="directors" action="{% url 'catalog:data_add'%}">
+		<label for="your_name">Your name: </label>
+    	<input id="your_name" type="text" name="your_name">
+   		<input type="submit" value="OK"> {% endcomment %}
+		</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button><a class="go_back_button" href="/">go back</a></button>
