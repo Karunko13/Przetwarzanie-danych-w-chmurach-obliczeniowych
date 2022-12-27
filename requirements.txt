@@ -1,5 +1,4 @@
-django
-gunicorn
+Django
 neomodel
 django-neomodel
 whitenoise
