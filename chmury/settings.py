@@ -94,7 +94,7 @@ DATABASES = {
 
 import os
 
-NEOMODEL_NEO4J_BOLT_URL = os.environ.get('NEO4J_BOLT_URL','neo4j://neo4j:qwerty123@52f4fe58.databases.neo4j.io:7687')
+NEOMODEL_NEO4J_BOLT_URL = os.environ.get('NEO4J_BOLT_URL','neo4j+s://neo4j:qwerty123@52f4fe58.databases.neo4j.io:7687')
 # you are free to add this configurations
 NEOMODEL_SIGNALS = True
 NEOMODEL_FORCE_TIMEZONE = False
